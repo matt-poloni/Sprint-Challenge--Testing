@@ -21,7 +21,7 @@ describe('server', () => {
     })
   })
 
-  describe.skip('/games GET', () => {
+  describe('/games GET', () => {
     it('should return a 200 status', () => {
       return request(server)
         .get('/games')

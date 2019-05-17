@@ -1,6 +1,7 @@
 const express = require('express');
 const server = express();
 const db = require('./model');
+// const mw = require('./middleware');
 
 server.use(express.json());
 

@@ -49,7 +49,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
 - [x] Fork and clone this repository.
 - [x] **CD into the folder** where you downloaded the repository.
 - [x] Run `yarn` or `npm i` to download all dependencies.
-- [ ] Type `yarn test` or `npm test` to run the tests. The `test` script is already configured.
+- [x] Type `yarn test` or `npm test` to run the tests. The `test` script is already configured.
 
 ## Minimum Viable Product
 
@@ -57,14 +57,14 @@ Your finished project must include all of the following requirements:
 
 - [x] Use `jest` and `supertest` to write the tests.
 - [x] Write the **tests BEFORE** writing the route handlers.
-- [ ] Your API must have both `POST` and `GET` endpoints for `/games`.
+- [x] Your API must have both `POST` and `GET` endpoints for `/games`.
 - [x] Write a **minimum** of three tests per endpoint.
 
 Below is a product specification covering the requirements for your endpoints.
 
 ### POST /games
 
-- [ ] The `POST /games` endpoint should take in an object that looks like this
+- [x] The `POST /games` endpoint should take in an object that looks like this
 
   ```js
   {
@@ -74,7 +74,7 @@ Below is a product specification covering the requirements for your endpoints.
   }
   ```
 
-- [ ] In the route handler, validate that the required fields are included inside the body. If the information is incomplete, return a `422` status code.
+- [x] In the route handler, validate that the required fields are included inside the body. If the information is incomplete, return a `422` status code.
 - [x] Write tests to verify that the endpoint returns the correct HTTP status code when receiving correct and incorrect game data.
 
 ### GET /games
@@ -87,8 +87,8 @@ Below is a product specification covering the requirements for your endpoints.
 The following exercises are optional, but we suggest that you tackle them if you finish the MVP early.
 
 - [ ] Validate that the game `title` is unique. If the client tries to create a duplicate game, return a status code 405 (Not Allowed). Write a test that checks for this.
-- [ ] Add an `id` property to the game schema and write code in the server to increment it automatically. After implementing this functionality work on the following:
-  - [ ] Write a `GET /games/:id` endpoint that returns the information about a single game. Respond with a 404 status code when a game is not found for the provided `id`. Add the corresponding tests for it.
+- [x] Add an `id` property to the game schema and write code in the server to increment it automatically. After implementing this functionality work on the following:
+  - [x] Write a `GET /games/:id` endpoint that returns the information about a single game. Respond with a 404 status code when a game is not found for the provided `id`. Add the corresponding tests for it.
   - [ ] Add a `DELETE /games/:id` endpoint that can remove the corresponding game. If the game does not exist return a 404 status code. Write tests for this endpoint.
 
 **Remember you can use any resources you want to solve these problems, but avoid copying/pasting solutions you've previously written. Also if you don't finish all of the challenges, that's fine! Just do what you can and submit your challenges in the end! HAVE FUN!**

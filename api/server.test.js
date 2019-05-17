@@ -45,32 +45,40 @@ describe('server', () => {
     })
   })
 
-  describe.skip('/games POST', () => {
-    const badData = { releaseYear: 1980 }
-    const goodData = {
+  describe('/games POST', () => {
+    const data = {
       title: 'Pacman',
       genre: 'Arcade',
       releaseYear: 1980,
     }
     
-    it('should return a 422 status when not given required data', () => {
+    it('should return a 422 status when not given a title', () => {
+      const {genre} = data;
       return request(server)
         .post('/games')
-        .send(badData)
+        .send({genre})
+        .expect(422);
+    })
+    
+    it('should return a 422 status when not given a genre', () => {
+      const {title} = data;
+      return request(server)
+        .post('/games')
+        .send({title})
         .expect(422);
     })
     
     it('should return a 201 status when given correct data', () => {
       return request(server)
         .post('/games')
-        .send(goodData)
+        .send(data)
         .expect(201);
     })
 
     it('should return an id of 1', () => {
       return request(server)
         .post('/games')
-        .send(goodData)
+        .send(data)
         .then(res => {
           expect(res.body).toEqual([1]);
         })
@@ -79,12 +87,12 @@ describe('server', () => {
     it('should return the id of the new game', async () => {
       const res = await request(server)
         .post('/games')
-        .send(goodData);
+        .send(data);
       const id = res.body[0];
       return request(server)
         .get(`/games/${id}`)
         .then(res => {
-          expect(res.body).toEqual(expect.objectContaining(goodData));
+          expect(res.body).toEqual(expect.objectContaining(data));
         })
     })
   })

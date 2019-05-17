@@ -18,4 +18,30 @@ server.get('/games', (req, res) => {
     })
 })
 
+server.post('/games', (req, res) => {
+  const { title, genre } = req.body;
+  !title || !genre
+    ? res.status(422).json({ message: 'Please provide both a title and a genre for the game you wish to create' })
+    : db.post(req.body)
+      .then(created => {
+        res.status(201).json(created);
+      })
+      .catch(err => {
+        res.status(500).json({ error: "Couldn't create new game in database" })
+      })
+})
+
+server.get('/games/:id', (req, res) => {
+  const {id} = req.params;
+  db.get({id})
+    .then(game => {
+      !game
+        ? res.status(404).json({ error: 'Game at specified ID not found in the database' })
+        : res.status(200).json(game);
+    })
+    .catch(err => {
+      res.status(500).json({ error: "Couldn't retrieve game from database" })
+    })
+})
+
 module.exports = server;

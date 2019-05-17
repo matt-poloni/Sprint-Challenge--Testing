@@ -1,0 +1,22 @@
+const db = require('../data/dbConfig');
+const tbl = 'games';
+
+module.exports = {
+  get,
+  post,
+  // del,
+}
+
+function get(val) {
+  return val
+    ? db(tbl).where(val).first()
+    : db(tbl);
+}
+
+function post(entry) {
+  return db(tbl).insert(entry);
+}
+
+// function del() {
+//   return null;
+// }

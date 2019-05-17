@@ -84,7 +84,7 @@ describe('server', () => {
       return request(server)
         .get(`/games/${id}`)
         .then(res => {
-          expect(res.body).toEqual({ ...goodData, id });
+          expect(res.body).toEqual(expect.objectContaining(goodData));
         })
     })
   })

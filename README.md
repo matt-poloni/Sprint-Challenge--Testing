@@ -24,14 +24,30 @@ In this challenge use `Test Driven Development` to build a RESTful API using Nod
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
-1. What is the point of `Test Driven Development`? What do you think about this approach?
-1. Mention three types of automated tests.
+1. [x] In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
+
+* **describe()** groups together several related tests under one label and indents the nested tests (or other describe blocks) to better organize the test output. Instead of looking at a list of one test after another, some of which are related, you get back a sort of visual hierarchy of all the tests that's easier to scan through.
+
+* **it()** (aka `test()`) labels and directly runs the actual test as a callback function.
+
+1. [x] What is the point of `Test Driven Development`? What do you think about this approach?
+
+* The two main points are to give us a safety net for future changes to the code and to force us into writing better code by thinking of how it could be more testable and better handle edge cases. But one of the more underrated side effects of this approach (in my opinion) is that it also acts as a sort of documentation for your code to future developers that understand the tests. They can look at these tests and see what you were (and weren't) accounting for and get a much better sense of what does/doesn't need to be done.
+
+* As someone who prefers to be proactive rather than reactive, this just makes sense to me.
+
+1. [x] Mention three types of automated tests.
+
+* **Unit** testing: making sure that each small piece of the application works as expected in isolation from each other.
+
+* **Integration** testing: making sure that different units work together as expected.
+
+* **End-to-End** testing: making sure that the application as a whole works as expected.
 
 ## Project Set Up
 
-- [ ] Fork and clone this repository.
-- [ ] **CD into the folder** where you downloaded the repository.
+- [x] Fork and clone this repository.
+- [x] **CD into the folder** where you downloaded the repository.
 - [ ] Run `yarn` or `npm i` to download all dependencies.
 - [ ] Type `yarn test` or `npm test` to run the tests. The `test` script is already configured.
 

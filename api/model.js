@@ -7,12 +7,14 @@ module.exports = {
   // del,
 }
 
-function get() {
-  return null;
+function get(val) {
+  return val
+    ? db(tbl).where(val).first()
+    : db(tbl);
 }
 
-function post() {
-  return null;
+function post(entry) {
+  return db(tbl).insert(entry);
 }
 
 // function del() {

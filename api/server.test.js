@@ -21,6 +21,30 @@ describe('server', () => {
     })
   })
 
+  describe.skip('/games GET', () => {
+    it('should return a 200 status', () => {
+      return request(server)
+        .get('/games')
+        .expect(200);
+    })
+
+    it('should return an array', () => {
+      return request(server)
+      .get('/games')
+      .then(res => {
+        expect(Array.isArray(res.body));
+      })
+    })
+
+    it('should return an empty array before games are added', () => {
+      return request(server)
+      .get('/games')
+      .then(res => {
+        expect(res.body).toHaveLength(0);
+      })
+    })
+  })
+
   describe.skip('/games POST', () => {
     const badData = { releaseYear: 1980 }
     const goodData = {
